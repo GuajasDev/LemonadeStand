@@ -90,7 +90,6 @@ class ViewController: UIViewController {
         setupSalesContainer(self.salesContainer)
         
         resetGame()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -142,8 +141,6 @@ class ViewController: UIViewController {
         self.salesContainer.layer.borderColor = UIColor.blackColor().CGColor
         self.salesContainer.hidden = true
         self.view.addSubview(self.salesContainer)
-        
-        
     }
     
     func setupFirstContainer(containerView: UIView) {
@@ -249,7 +246,6 @@ class ViewController: UIViewController {
                                                  y: containerView.bounds.height * kSixth * 5.2)
         self.buyIceCubesStepper.addTarget(self, action: "buyIceCubesStepperValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
         containerView.addSubview(self.buyIceCubesStepper)
-        
     }
     
     func setupThirdContainer(containerView: UIView) {
@@ -311,7 +307,6 @@ class ViewController: UIViewController {
                                                  y: containerView.bounds.height * kSixth * 5.2)
         self.mixIceCubesStepper.addTarget(self, action: "mixIceCubesStepperValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
         containerView.addSubview(self.mixIceCubesStepper)
-        
     }
     
     func setupFourthContainer(containerView: UIView) {
