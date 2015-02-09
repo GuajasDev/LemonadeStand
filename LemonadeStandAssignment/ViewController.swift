@@ -156,7 +156,9 @@ class ViewController: UIViewController {
                                       y: containerView.bounds.height * kFourth)
         containerView.addSubview(youHaveLabel)
         
-        self.weatherImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: containerView.bounds.height * kThird * 1.5, height: containerView.bounds.height * kThird * 1.5))
+        self.weatherImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0,
+                                                          width: containerView.bounds.height * kThird * 1.5,
+                                                          height: containerView.bounds.height * kThird * 1.5))
         self.weatherImageView.center = CGPoint(x: containerView.bounds.width * kThird, y: containerView.bounds.height * kFourth * 2.5)
         containerView.addSubview(self.weatherImageView)
         
