@@ -545,7 +545,7 @@ class ViewController: UIViewController {
         self.mixIceCubesStepper.value = 0
         
         // If there is no more money, lemons or ice cubes left then it is game over
-        if self.money.initial <= 0.0 && self.lemon.initial <= 0 && self.iceCube.initial <= 0 {
+        if self.money.initial < self.lemon.price && self.money.initial < self.iceCube.price && self.lemon.initial <= 0 && self.iceCube.initial <= 0 {
             gameOver()
         }
     }
