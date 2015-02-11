@@ -512,41 +512,44 @@ class ViewController: UIViewController {
     
     func startDayButtonPressed(button: UIButton) {
         
-        // The initial money for the next turn is the initial money from this turn minus the spent money
-        self.money.initial -= self.money.spent
-        self.money.spent = 0.0
-        
-        // Check if the player has entered either a lemon or an ice cube to mix in the lemonade
-        if self.lemon.mixed != 0 || self.iceCube.mixed != 0 {
+        // Check if the user has entered either a lemon or an ice cube to mix in the lemonade
+        if self.lemon.mixed != 0 && self.iceCube.mixed != 0 {
+            
+            // The initial money for the next turn is the initial money from this turn minus the spent money
+            self.money.initial -= self.money.spent
+            self.money.spent = 0.0
+            
+            // Check how much money the user makes and display it on the screen
             let lemonadeToday = LemonadeBrain.createLemonadeRatio(self.lemon.mixed, iceCubes: self.iceCube.mixed)
             let paidToday = LemonadeBrain.customersPaidToday(LemonadeBrain.customersToVisitToday(self.weather), lemonade: lemonadeToday)
             getPaid(paidToday)
             showSalesOfTheDay(lemonadeToday, visitedToday: paidToday)
-        }
-        
-        // The initial lemons for the next turn is the initial lemons from this turn plus the used lemons (which can be - or +)
-        self.lemon.initial += self.lemon.used
-        self.lemon.bought = 0
-        self.lemon.mixed = 0
-        self.lemon.used = 0
-        self.lemon.stepper1 = 0
-        
-        // The initial ice cubes for the next turn is the initial ice cubes from this turn minus the used ice cubes (which can be - or +)
-        self.iceCube.initial += self.iceCube.used
-        self.iceCube.bought = 0
-        self.iceCube.mixed = 0
-        self.iceCube.used = 0
-        self.iceCube.stepper1 = 0
-        
-        // Reset the values of the steppers to zero
-        self.buyLemonsStepper.value = 0
-        self.buyIceCubesStepper.value = 0
-        self.mixLemonsStepper.value = 0
-        self.mixIceCubesStepper.value = 0
-        
-        // If there is no more money, lemons or ice cubes left then it is game over
-        if self.money.initial < self.lemon.price && self.money.initial < self.iceCube.price && self.lemon.initial <= 0 && self.iceCube.initial <= 0 {
-            gameOver()
+            
+            // The initial lemons for the next turn is the initial lemons from this turn plus the used lemons (which can be - or +)
+            self.lemon.initial += self.lemon.used
+            self.lemon.bought = 0
+            self.lemon.mixed = 0
+            self.lemon.used = 0
+            self.lemon.stepper1 = 0
+            
+            // The initial ice cubes for the next turn is the initial ice cubes from this turn minus the used ice cubes (which can be - or +)
+            self.iceCube.initial += self.iceCube.used
+            self.iceCube.bought = 0
+            self.iceCube.mixed = 0
+            self.iceCube.used = 0
+            self.iceCube.stepper1 = 0
+            
+            // Reset the values of the steppers to zero
+            self.buyLemonsStepper.value = 0
+            self.buyIceCubesStepper.value = 0
+            self.mixLemonsStepper.value = 0
+            self.mixIceCubesStepper.value = 0
+            
+            // If there is no more money, lemons or ice cubes left then it is game over
+            if self.money.initial < self.lemon.price && self.money.initial < self.iceCube.price && self.lemon.initial <= 0 && self.iceCube.initial <= 0 {
+                gameOver()
+            }
+            
         }
     }
     
